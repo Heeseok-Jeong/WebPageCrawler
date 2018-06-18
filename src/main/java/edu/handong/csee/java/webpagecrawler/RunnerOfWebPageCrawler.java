@@ -6,10 +6,15 @@ import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
+import java.net.*;
+import java.util.ArrayList;
+import java.io.*;
+
 
 public class RunnerOfWebPageCrawler {
 	String url;
 	String savePath;
+	String html;
 	boolean help;
 	
 	public static void main(String[] args) {
@@ -31,6 +36,16 @@ public class RunnerOfWebPageCrawler {
 			// path is required (necessary) data so no need to have a branch.
 			System.out.println("You provided \"" + savePath + "\" as the value of the option d");
 		}
+		HTMLConverter htmlCvt = new HTMLConverter();
+		HTMLFileWritter htmlWrt = new HTMLFileWritter();
+		htmlCvt.setUrl(url);
+		htmlCvt.mergeReadLine();
+		htmlWrt.setHtml(htmlCvt.getContentsOfFile());
+		htmlWrt.writeHtml();
+		
+		
+//		ArrayList<String> contentsOfFile = new ArrayList<String>();
+		
 	}
 	
 	private boolean parseOptions(Options options, String[] args) {
