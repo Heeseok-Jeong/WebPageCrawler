@@ -23,7 +23,7 @@ public class HTMLConverter {
 			DataInputStream dis = new DataInputStream(page.openStream());
 			String inputLine;
 			while ((inputLine = dis.readLine()) != null) {
-				contentsOfFile += inputLine;
+				contentsOfFile += inputLine + "\n";
 			}
 			dis.close();
 		} catch (MalformedURLException me) {

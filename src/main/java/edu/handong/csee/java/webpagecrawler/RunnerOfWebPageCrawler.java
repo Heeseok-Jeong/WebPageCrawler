@@ -37,15 +37,12 @@ public class RunnerOfWebPageCrawler {
 			System.out.println("You provided \"" + savePath + "\" as the value of the option d");
 		}
 		HTMLConverter htmlCvt = new HTMLConverter();
-		HTMLFileWritter htmlWrt = new HTMLFileWritter();
+		HTMLFileWriter htmlWrt = new HTMLFileWriter(savePath);
 		htmlCvt.setUrl(url);
 		htmlCvt.mergeReadLine();
 		htmlWrt.setHtml(htmlCvt.getContentsOfFile());
 		htmlWrt.writeHtml();
-		
-		
-//		ArrayList<String> contentsOfFile = new ArrayList<String>();
-		
+//		ArrayList<String> contentsOfFile = new ArrayList<String>();	
 	}
 	
 	private boolean parseOptions(Options options, String[] args) {
@@ -72,15 +69,15 @@ public class RunnerOfWebPageCrawler {
 			Options options = new Options();
 
 			// add options by using OptionBuilder
-			options.addOption(Option.builder("i").longOpt("input")
-					.desc("Set a directory path that contains input files")
+			options.addOption(Option.builder("u").longOpt("url")
+					.desc("Set a url to read")
 					.hasArg()
-					.argName("Directory Path")
+					.argName("URL")
 					.required()
 					.build());
 
 			// add options by using OptionBuilder
-			options.addOption(Option.builder("o").longOpt("output")
+			options.addOption(Option.builder("d").longOpt("directory")
 					.desc("Set a directory path that output file are saved")
 					.hasArg()
 					.argName("Directory Path")
@@ -98,9 +95,9 @@ public class RunnerOfWebPageCrawler {
 		private void printHelp(Options options) {
 			// automatically generate the help statement
 			HelpFormatter formatter = new HelpFormatter();
-			String header = "Counting messages of CacaoTalk per person program";
+			String header = "Saving html file program";
 			String footer ="\nPlease report issues at dldydldy@naver.com";
-			formatter.printHelp("CountMessages", header, options, footer, true);
+			formatter.printHelp("WebPageCrawler", header, options, footer, true);
 		}
 
 }
