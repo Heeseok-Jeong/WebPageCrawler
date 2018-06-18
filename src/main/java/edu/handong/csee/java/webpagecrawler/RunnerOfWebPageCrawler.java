@@ -6,9 +6,6 @@ import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
-import java.net.*;
-import java.util.ArrayList;
-import java.io.*;
 
 
 public class RunnerOfWebPageCrawler {
