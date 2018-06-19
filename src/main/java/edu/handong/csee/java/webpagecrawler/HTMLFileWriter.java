@@ -22,7 +22,7 @@ public class HTMLFileWriter {
 		try {
 			bw = new BufferedWriter(
 					new OutputStreamWriter(
-							new FileOutputStream(savePath), "UTF8"));
+							new FileOutputStream(savePath + "/index.html"), "UTF8"));
 			bw.write(html); 
 			bw.close();
 		} catch (IOException e) {
