@@ -39,6 +39,7 @@ public class RunnerOfWebPageCrawler {
 		htmlCvt.mergeReadLine();
 		htmlWrt.setHtml(htmlCvt.getContentsOfFile());
 		htmlWrt.writeHtml();
+		System.out.println(htmlCvt.getContentsOfFile());
 //		ArrayList<String> contentsOfFile = new ArrayList<String>();	
 	}
 	
